@@ -1,0 +1,309 @@
+.wholeStru{
+    background-image: url("https://c1.wallpaperflare.com/preview/600/526/347/background-black-abstract-dark-backdrop-web.jpg");
+    background-size: cover;
+}
+
+.UserInterface{
+    margin: 0px 75px;
+    background-color: aliceblue;
+    height: 650px;
+    padding: 10px 0px;
+}
+
+.form > * {
+    display:flex;
+    flex-direction:column;
+    gap: 10px;
+    max-width:250px; 
+    margin:10px auto;
+}
+
+.MyQueryButton{
+    background-color: rgb(32, 153, 228);
+    margin-left: 30px;
+    height:30px;
+    width: 150px;
+    font-weight:bold;
+    color: white;
+}
+
+/* HelDesk */
+.whole-structure{
+    /* font-size: 30px; */
+    height:98vh;
+    display:grid;
+    grid-auto-flow: column;
+    /* grid-template-columns: 60px 1fr 1fr 1fr; */
+    grid-template-columns: 1fr 1fr;
+    background-color: aliceblue;
+}
+
+.whole-structure > div {
+    border: 2px solid rgb(68, 118, 150);
+}
+
+/* .Navigation-Bar{
+    background-color: rgb(32, 153, 228);
+    display:grid;
+    justify-content: center;
+    align-content: center;
+    gap:15px;
+} */
+
+.gap{
+    margin: 10px;
+}
+
+/* Left */
+.Query-content-wrap{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0px 20px;
+    /* align-content: center; */
+}
+
+.title-as-query{
+    margin-left: 10px;
+}
+
+.Query-Content{
+    border: 2px solid rgb(68, 118, 150);
+    margin-bottom:2px;
+    overflow-y:auto;
+}
+
+.Query-title{
+    margin:20px;
+}
+
+.Query-Box{
+    overflow-y:auto;
+    height:550px;
+    margin: 3px;
+}
+
+.OpenQuery-button{
+    background-color:rgb(32, 153, 228);
+    padding: 0px 15px;
+    border-radius: 10px;
+    height: 50px;
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom:7px;
+}
+
+.Open{
+    text-align: center;
+}
+
+/* Center */
+/* 
+   .QueryNo
+*/
+/* The above className styles are done in UserDashboard css */
+.AssociateName-Name{
+    margin-left: 10px;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+}
+
+.AssociateName{
+    color: rgb(68, 118, 150);
+}
+
+.QueryDiscription{
+    margin:10px;
+    border: 2px solid rgb(68, 118, 150);
+    height: 47%;
+    overflow-y:auto;
+}
+
+.Query-Discription-Titles, .Query-Chat-Titles{
+    background-color: rgb(32, 153, 228);
+    border:2px solid rgb(68, 118, 150);
+    margin: 2px;
+}
+
+.Single-Query-no-name{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0px 25px;
+}
+
+.Single-Query-Title{
+    text-align: center;
+}
+
+.Single-Query-Type{
+    margin-left: 25px;
+}
+
+.Single-Query-Discription{
+    margin: 0px 15px;
+    /* height:80px; */
+    border-bottom: 5px;
+}
+
+.QueryChating{
+    margin:10px;
+    border: 2px solid rgb(68, 118, 150);
+    height: 48%;
+}
+
+.Query-Chat{
+    height: 78%;
+    margin: 2px;
+    background-image: url("https://imagetolink.com/ib/aaBjsDtErt");
+    background-color: rgb(107, 189, 239)
+}
+
+/* Right */
+.Recent-Activities-box{
+    height:300px;
+    margin:10px;
+    border: 2px solid rgb(68, 118, 150);
+}
+
+.Co-Ordinator-Details-Box{
+    height:250px;
+    margin:10px;
+    border: 2px solid rgb(68, 118, 150);
+}
+
+/* QueryDashBoard */
+/* 
+   .Query-Content
+   .Query-content-wrap
+   .Query-title
+   .OpenQuery-button 
+   .gap
+   .Query-Box
+   .QueryDiscription
+   .Query-Discription-Titles
+   .Single-Query-Title
+   .Single-Query-Type
+   .Single-Query-Discription
+   .QueryChating 
+*/
+/* The above className styles are done in HelDesk css */
+.QueryDate{
+    margin-bottom: 0px;
+}
+
+.QueryTime{
+    margin-top: 0px;
+}
+
+.DashBoard{
+    display:grid;
+    grid-auto-flow: column;
+    grid-template-columns: 1fr 1fr;
+}
+
+.DashBoard > div {
+    border: 2px solid rgb(68, 118, 150);
+}
+
+.QType-Name{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.Query-As-Title{
+    margin-left: 10px;
+}
+
+.Create-Query-Button{
+    margin: 10px;
+}
+
+.Create-Query-Button > button{
+    padding: 5px;
+    font-weight: bold;
+    background-color: rgb(32, 153, 228);
+}
+
+.Single-Query-no-title{
+    display:flex;
+    flex-direction: row;
+    margin: 0px 25px;
+    align-items: center;
+    gap: 25px;
+}
+
+.QueryNo{
+    border: 2px solid rgb(68, 118, 150);
+    border-radius: 10px;
+    padding : 0px 5px;
+}
+
+.DateTimeinQueryDiscription{
+    display: flex;
+    flex-direction: row-reverse;
+    margin-right: 20px;
+}
+
+/* Error 404: Not Found */
+.not-found{
+    width:100%; 
+    object-fit: cover; 
+    max-width: 600px; 
+    margin: 0 auto;
+}
+
+/* User */
+/* 
+   MyQueryButton
+*/
+/* The above className styles are done in General css */
+.Discription{
+    height: 80px;
+    resize: none;
+}
+
+/* Login */
+.LoginPage{
+    background-image: url("https://rebrand.ly/udss93r");
+    background-size: cover;
+    background-color: rgb(141, 145, 18);
+    height:100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+.LoginForm{
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    background: linear-gradient(to right, #ffcc00, #34b7c1);
+}
+
+.UserLogin{
+    text-align: center;
+}
+
+.loginErrorMessage{
+    color: #fff;
+    background-color: #b43d3d;
+}
+
+/* SignUp */
+.SignupSuccessMsg{
+    color: #fff;
+    background-color:rgb(67, 145, 18)
+}
