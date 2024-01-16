@@ -307,3 +307,14 @@
     color: #fff;
     background-color:rgb(67, 145, 18)
 }
+
+.SignupFailedMsg{
+    color: #fff;
+    background-color:rgb(145, 18, 18)
+}
+
+.navFromLoginPage{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
