@@ -2,6 +2,7 @@ import './App.css'
 import { Signup } from './Signup'
 import { Login } from './Login'
 import { User } from './User'
+import { ForgotPassword } from './ForgotPassword'
 import { QueryDashBoard } from './QueryDashboard'
 import { HelDesk } from './HelDesk'
 // import  UserChat from './UserChat'
@@ -86,6 +87,7 @@ function App() {
         <Route path='/' element={<Signup/>}/>
         <Route path='/Login' element={<Login/>}/>
         <Route path='/User' element={<User/>}/>
+        <Route path='/ForgotPassword' element={<ForgotPassword/>}/>
         <Route path='/QueryDashBoard' element={<QueryDashBoard/>}/>
         <Route path="/HelpDesk" element={<HelDesk/>}/>
 
