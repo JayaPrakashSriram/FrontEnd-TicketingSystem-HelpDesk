@@ -100,8 +100,9 @@ export function Login(){
         {/* Display a error message if username or password is invalid */}
         {errorMessage && <div className='loginErrorMessage'>{errorMessage}</div>}
 
-        <div>
-          <button onClick={() => navigate('/')}>Don't have an account</button>
+        <div className='navFromLoginPage'>
+          <button onClick={() => navigate('/')}>Don't have an account</button> <br/>
+          <button onClick={() => navigate('/ForgotPassword')}>Forgot Password</button>
         </div>
 
         {/* <br/>

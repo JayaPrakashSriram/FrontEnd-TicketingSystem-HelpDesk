@@ -10,6 +10,9 @@ export function Signup(){
   const [signupSuccess, setSignupSuccess] = useState(false);
   const [Credential, SetCredential] = useState([]);
 
+  // This useState errorMessage hold the 'Invalid Credentials' text
+  const [errorMessage, setErrorMessage] = useState();
+
   const formValidationSchema = yup.object({       
     username: yup.string().required("Please enter your username"),                                                                            
     email: yup.string().required("Why not fill this email").min(12, "Need a bigger email"),                                          
@@ -29,35 +32,96 @@ export function Signup(){
     onSubmit: (values) => handleSignUp(values),
   });
 
-  const handleSignUp = (enteredValues) => {
-    // console.log("Singup Successfull!", enteredValues);
+  // const handleSignUp = async (enteredValues) => {
+  //   // console.log("Singup Successfull!", enteredValues);
 
-    // Make the Api call to store the data of the registered user
-    const apiEndpoint = "https://64a63998096b3f0fcc7f7574.mockapi.io/movies";
-  
-    // Perform the API call
-    fetch(apiEndpoint, {
-      method: 'POST',
-      body: JSON.stringify(enteredValues),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-    .then((response) => response.json())
-    .then((newCredential) => {
-      // Update state with the new user details which was created and featched 
-      SetCredential([...Credential, newCredential]);
-  
-      // Update state to indicate successful signup
-      setSignupSuccess(true);
+  //   // Make the Api call to Check or store the data of the registered user
+  //   const apiEndpoint = "https://64a63998096b3f0fcc7f7574.mockapi.io/movies";
 
-      // Here using setTimeout to delay the navigation. Delaying the navigation to show the success msg.
-      setTimeout(() => {
-        navigate('/QueryDashBoard')
-      }, 3000);
-    });
+  // //   const userDetails = () => {  
+  // //     fetch(apiEndpoint)
+  // //       .then((data) => data.json());
+  // //   };
+
+  //   const userDetails =
+  //     await fetch(apiEndpoint)
+  //       .then((data) => data.json());
+
+  //   const user = userDetails.find(
+  //     (usr) => usr.username === enteredValues.username || usr.email === enteredValues.email,
+  //   );
+  
+  //   if(user){
+  //     setErrorMessage('Credentials taken, please try something else');
+  //     console.log(errorMessage);
+  //   }
+  //   else{
+  //     // Perform the API call
+  //     fetch(apiEndpoint, {
+  //       method: 'POST',
+  //       body: JSON.stringify(enteredValues),
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //     })
+
+  //   //  .then((response) => response.json())
+  //   //  .then((newCredential) => {
+  //   //    // Update state with the new user details which was created and featched 
+  //   //    SetCredential([...Credential, newCredential]);
+  
+  //     const newCredential = await response.json();
+  //     SetCredential([...userDetails, newCredential]);
+  
+  //     // Update state to indicate successful signup
+  //     setSignupSuccess(true);
+  
+  //     // Here using setTimeout to delay the navigation. Delaying the navigation to show the success msg.
+  //     setTimeout(() => {
+  //       navigate('/QueryDashBoard')
+  //     }, 3000);
+  //   };
+  // }
+  
+  
+  const handleSignUp = async (enteredValues) => {
+    try {
+      const apiEndpoint = "https://64a63998096b3f0fcc7f7574.mockapi.io/movies";
+      const userDetails = await fetch(apiEndpoint).then((response) => response.json());
+
+      const user = userDetails.find(
+        (usr) => usr.username === enteredValues.username || usr.email === enteredValues.email
+      );
+
+      if (user) {
+        setErrorMessage('Credentials taken, please try alternative username or password');
+        console.log('Credentials taken, please try alternative username or password');
+      } else {
+        const response = await fetch(apiEndpoint, {
+          method: 'POST',
+          body: JSON.stringify(enteredValues),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const newCredential = await response.json();
+        SetCredential([...userDetails, newCredential]);
+
+        setSignupSuccess(true);
+
+        navigate('/QueryDashBoard');
+      }
+    } catch (error) {
+      console.error('Error during signup:', error);
+      // Handle errors, maybe set an error state
+    }
   };
-
+  
   // Here using useEffect to clear the success meessage when the component unmounts
   useEffect(() => {
     return() => {
@@ -112,7 +176,9 @@ export function Signup(){
 
         <button type='submit'>submit</button>
         
-        {signupSuccess && (<div className="SignupSuccessMsg">Signup Successful! Redirecting to dashboard...</div>)}
+        { setSignupSuccess === true 
+            ? signupSuccess && (<div className="SignupSuccessMsg">Signup Successful! Redirecting to dashboard...</div>) 
+            : errorMessage && (<div className="SignupFailedMsg">Credentials taken, please try something else</div>)}
 
         <div>
           <button onClick={() => navigate('/Login')}>Already have an account</button>
